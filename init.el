@@ -132,3 +132,7 @@
 
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
+
+(use-package cmake-mode
+  :ensure t)
+
