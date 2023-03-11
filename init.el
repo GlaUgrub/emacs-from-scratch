@@ -47,7 +47,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(helpful ivy-rich counsel which-key rainbow-delimiters doom-modeline command-log-mode swiper ivy use-package)))
+   '(magit cmake-mode counsel-projectile projectile all-the-icons helpful ivy-rich counsel which-key rainbow-delimiters doom-modeline command-log-mode swiper ivy use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -117,3 +117,18 @@
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
+
+(use-package projectile
+  :ensure t
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "/media/glaugrub/Data/Projects")
+    (setq projectile-project-search-path '("/media/glaugrub/Data/Projects")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
