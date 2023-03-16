@@ -1,0 +1,212 @@
+
+* Minor modes
+
+#+BEGIN_SRC emacs-lisp
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(recentf-mode 1)
+
+#+END_SRC
+
+
+* Global settings
+
+#+BEGIN_SRC emacs-lisp
+
+(global-display-line-numbers-mode 1)
+(global-auto-revert-mode 1)
+
+(global-set-key "\M-p" "\M-{")
+(global-set-key "\M-n" "\M-}")
+
+(column-number-mode)
+
+(dolist (mode '(org-mode-hook
+		term-mode-hook
+		shell-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+#+END_SRC
+
+
+* Load theme (GUI only)
+
+#+BEGIN_SRC emacs-lisp
+
+(load-theme 'deeper-blue t)
+  
+#+END_SRC
+
+
+* command-log-mode
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package command-log-mode
+  :ensure t
+  :config
+  (command-log-mode 1))
+
+#+END_SRC
+
+
+* Ivy, swiper
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package swiper :ensure t)
+
+(use-package ivy
+;; :diminish
+ :bind (("C-s" . swiper)
+	:map ivy-minibuffer-map
+      ("TAB" . ivy-alt-done)	
+      ("C-l" . ivy-alt-done)
+      ("C-j" . ivy-next-line)
+      ("C-k" . ivy-previous-line)
+      :map ivy-switch-buffer-map
+      ("C-k" . ivy-previous-line)
+      ("C-l" . ivy-done)
+      ("C-d" . ivy-switch-buffer-kill)
+      :map ivy-reverse-i-search-map
+      ("C-k" . ivy-previous-line)
+      ("C-d" . ivy-reverse-i-search-kill))
+ :config
+ (ivy-mode 1))
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
+#+END_SRC
+
+
+* Pretty look
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package all-the-icons
+  :ensure t)
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+#+END_SRC
+
+
+* which-key, helpful
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package which-key
+  :init (which-key-mode)
+  :config
+  (setq which-key-idle-delay 1))
+
+(use-package helpful
+  :ensure t
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
+
+#+END_SRC
+
+
+* counsel
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package counsel
+  :ensure t
+  :bind (("M-x" . counsel-M-x)
+	 ("C-x b" . counsel-ibuffer)
+	 ("C-x C-f" . counsel-find-file)
+	 :map minibuffer-local-map
+	 ("C-r" . 'counsel-minibuffer-history)))
+
+#+END_SRC
+
+
+* projectile
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package projectile
+  :ensure t
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "/media/glaugrub/Data/Projects")
+    (setq projectile-project-search-path '("/media/glaugrub/Data/Projects")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+#+END_SRC
+
+
+* magit
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package magit
+  :ensure t
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+#+END_SRC
+
+
+* cmake-mode
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package cmake-mode
+  :ensure t)
+
+#+END_SRC
+
+
+* Editor settings
+
+#+BEGIN_SRC emacs-lisp
+
+(setq-default c-basic-offset 4)
+(setq-default c-default-style "bsd")
+
+#+END_SRC
+
+
+* switch-window
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package switch-window
+  :ensure t
+  :config
+  (setq switch-window-input-style 'minibuffer)
+  (setq switch-window-increase 4)
+  (setq switch-window-threshold 2)
+  (setq switch-window-shortcut-style 'qwerty)
+  (setq switch-window-qwerty-shortcuts
+	'("a" "s" "d" "f" "j" "k"))
+  :bind
+  ([remap other-window] . switch-window))
+
+#+END_SRC
