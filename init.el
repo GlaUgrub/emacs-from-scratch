@@ -1,6 +1,3 @@
-;; My first init.el after big break. Typed using touch-typing
-
-;; Initialize package sources
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
