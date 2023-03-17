@@ -57,9 +57,11 @@
 
 #+BEGIN_SRC emacs-lisp
 
-(use-package swiper :ensure t)
+(use-package swiper
+ :ensure t)
 
 (use-package ivy
+ :ensure t
 ;; :diminish
  :bind (("C-s" . swiper)
 	:map ivy-minibuffer-map
@@ -78,6 +80,7 @@
  (ivy-mode 1))
 
 (use-package ivy-rich
+  :ensure t
   :init
   (ivy-rich-mode 1))
 
@@ -96,6 +99,7 @@
   :init (doom-modeline-mode 1))
 
 (use-package rainbow-delimiters
+  :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
 #+END_SRC
@@ -106,6 +110,7 @@
 #+BEGIN_SRC emacs-lisp
 
 (use-package which-key
+  :ensure t
   :init (which-key-mode)
   :config
   (setq which-key-idle-delay 1))
@@ -156,6 +161,7 @@
   (setq projectile-switch-project-action #'projectile-dired))
 
 (use-package counsel-projectile
+  :ensure t
   :config (counsel-projectile-mode))
 
 #+END_SRC
