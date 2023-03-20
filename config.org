@@ -195,6 +195,7 @@
 
 (setq-default c-basic-offset 4)
 (setq-default c-default-style "bsd")
+(setq-default show-trailing-whitespace t)
 
 #+END_SRC
 
@@ -216,3 +217,38 @@
   ([remap other-window] . switch-window))
 
 #+END_SRC
+
+
+* lsp-mode
+
+#+BEGIN_SRC emacs-lisp
+
+;;  (use-package lsp-mode
+;;    :ensure t
+;;    :init
+;;    (setq lsp-keymap-prefix "C-c l")
+;;    :config
+;;    (lsp-enable-which-key-integration t))
+
+#+END_SRC
+
+
+* eglot
+
+#+BEGIN_SRC emacs-lisp
+
+(use-package eglot
+  :ensure t)
+
+(require 'eglot)
+(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+
+(use-package company
+  :ensure t
+  :after eglot
+  :hook (eglot-managed-mode . company-mode))
+
+#+END_SRC
+
