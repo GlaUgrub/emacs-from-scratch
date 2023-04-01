@@ -22,7 +22,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(switch-window magit cmake-mode counsel-projectile projectile all-the-icons helpful ivy-rich counsel which-key rainbow-delimiters doom-modeline command-log-mode swiper ivy use-package)))
+   '(switch-window magit cmake-mode counsel-projectile projectile all-the-icons helpful ivy-rich counsel which-key rainbow-delimiters doom-modeline command-log-mode swiper ivy use-package))
+ '(safe-local-variable-values
+   '((projectile-project-compile-cmd . "build/make")
+     (projectile-project-test-cmd . "build/test_gtest")
+     (projectile-project-run-cmd . "build/sort_app"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -35,3 +39,28 @@
  '(magit-diff-removed ((((type tty)) (:foreground "red"))))
  '(magit-diff-removed-highlight ((((type tty)) (:foreground "IndianRed"))))
  '(magit-section-highlight ((((type tty)) nil))))
+
+(custom-set-variables
+ '(display-buffer-alist
+   '(("\*gud-.+"
+      (display-buffer-in-side-window)
+      (side . right)
+      (window-width . .3)
+      (slot . -1)
+     )
+     ("input/output.+"
+      (display-buffer-in-side-window)
+      (side . right)
+      (window-width . .3)
+      (slot . 1)
+     )
+     ("\*compilation\*"
+      (display-buffer-in-side-window)
+      (side . right)
+      (window-width . .3)
+      (slot . 1)
+     )
+     (".*"
+      (display-buffer-same-window
+       display-buffer-reuse-mode-window)
+     ))))
