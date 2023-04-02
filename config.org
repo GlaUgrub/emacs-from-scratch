@@ -275,7 +275,8 @@
 (use-package company
   :ensure t
   :after eglot
-  :hook (eglot-managed-mode . company-mode))
+  :hook
+  (eglot-managed-mode . company-mode)
+  (eglot-managed-mode . electric-pair-mode))
 
 #+END_SRC
-
