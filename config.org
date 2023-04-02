@@ -37,7 +37,7 @@
 #+BEGIN_SRC emacs-lisp
 
 (load-theme 'deeper-blue t)
-  
+
 #+END_SRC
 
 
@@ -65,7 +65,7 @@
 ;; :diminish
  :bind (("C-s" . swiper)
 	:map ivy-minibuffer-map
-      ("TAB" . ivy-alt-done)	
+      ("TAB" . ivy-alt-done)
       ("C-l" . ivy-alt-done)
       ("C-j" . ivy-next-line)
       ("C-k" . ivy-previous-line)
@@ -200,7 +200,7 @@
 #+END_SRC
 
 
-* switch-window
+* switch-window, startup window config, display-buffer-alist
 
 #+BEGIN_SRC emacs-lisp
 
@@ -215,6 +215,33 @@
 	'("a" "s" "d" "f" "j" "k"))
   :bind
   ([remap other-window] . switch-window))
+
+(split-window-horizontally)
+
+(custom-set-variables
+ '(display-buffer-alist
+   '(("\*gud-.+"
+      (display-buffer-in-side-window)
+      (side . right)
+      (window-width . .3)
+      (slot . -1)
+     )
+     ("input/output.+"
+      (display-buffer-in-side-window)
+      (side . right)
+      (window-width . .3)
+      (slot . 1)
+     )
+     ("\*compilation\*"
+      (display-buffer-in-side-window)
+      (side . right)
+      (window-width . .3)
+      (slot . 1)
+     )
+     (".*"
+      (display-buffer-same-window
+       display-buffer-reuse-mode-window)
+     ))))
 
 #+END_SRC
 

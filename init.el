@@ -40,27 +40,3 @@
  '(magit-diff-removed-highlight ((((type tty)) (:foreground "IndianRed"))))
  '(magit-section-highlight ((((type tty)) nil))))
 
-(custom-set-variables
- '(display-buffer-alist
-   '(("\*gud-.+"
-      (display-buffer-in-side-window)
-      (side . right)
-      (window-width . .3)
-      (slot . -1)
-     )
-     ("input/output.+"
-      (display-buffer-in-side-window)
-      (side . right)
-      (window-width . .3)
-      (slot . 1)
-     )
-     ("\*compilation\*"
-      (display-buffer-in-side-window)
-      (side . right)
-      (window-width . .3)
-      (slot . 1)
-     )
-     (".*"
-      (display-buffer-same-window
-       display-buffer-reuse-mode-window)
-     ))))
