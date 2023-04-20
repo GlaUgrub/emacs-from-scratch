@@ -238,6 +238,12 @@
       (window-width . .3)
       (slot . 1)
      )
+     ("\*ivy-occur.+"
+      (display-buffer-in-side-window)
+      (side . right)
+      (window-width . .3)
+      (slot . 1)
+     )
      (".*"
       (display-buffer-same-window
        display-buffer-reuse-mode-window)
