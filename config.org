@@ -36,7 +36,11 @@
 
 #+BEGIN_SRC emacs-lisp
 
-(load-theme 'deeper-blue t)
+;(load-theme 'deeper-blue t)
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-dark+ t))
 
 #+END_SRC
 

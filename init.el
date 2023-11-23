@@ -22,7 +22,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(switch-window magit cmake-mode counsel-projectile projectile all-the-icons helpful ivy-rich counsel which-key rainbow-delimiters doom-modeline command-log-mode swiper ivy use-package))
+   '(doom-themes switch-window magit cmake-mode counsel-projectile projectile all-the-icons helpful ivy-rich counsel which-key rainbow-delimiters doom-modeline command-log-mode swiper ivy use-package))
  '(safe-local-variable-values
    '((projectile-project-compile-cmd . "build/make")
      (projectile-project-test-cmd . "build/test_gtest")
