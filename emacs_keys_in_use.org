@@ -76,6 +76,7 @@ U - refresh list (update lates package information from elpa/melpa and choose pa
 l l - magit history buffer
 s - stage
 u - unstage
+k - discard unstaged changes
 c c - commit message
 C-c C-c - finalize commit
 
