@@ -1,0 +1,81 @@
+* Navigation
+
+C-p - previous line
+C-n - next line
+C-b - previous char
+C-f - next char
+M-b - previous word
+M-f - next word
+M-{ - previous paragraph
+M-} - next paragraph
+M-p - previous paragraph (my shortcut)
+M-n - next paragraph (my shortcut)
+
+C-a - to start of a line
+C-e - to end of a line
+M-a - to start of a sentence
+M-e - to end of a sentence
+
+M-v - scroll up
+C-v - scroll down
+M-< - to start of the buffer
+M-> - to end of the buffer
+
+C-l - center (up, down) cursor position
+C-M-l - center (up, down) current "thing"
+
+M-g M-g <line number> - move cursor to line <line number>
+
+C-r - backward search
+C-s - forward search
+
+
+* Editing
+
+C-SPC - set mark
+C-w - cut highlighted text (place to clipboard)
+M-w - copy highlighted text (place to clipboard)
+C-y - paste text from clipboard
+M-h - mark paragraph
+C-/ - undo/redo
+
+C-k - kill line
+
+
+* Windows and buffers
+
+C-x 0 - close current window
+C-x 2 - split window below
+C-x 3 - split window right
+
+C-x b - switch to buffer
+C-x k - kill buffer
+
+
+* elisp
+
+C-x C-e - eval last sexp
+
+
+* Projectile bindings:
+
+C-c p f - find file
+C-c p s g - grep files
+C-c C-o - put grep search results to standalone window
+
+
+* Packages
+
+** M-x list-packages - print list of all available packages (version and details captured from melpa/elpa during last "refresh")
+U - refresh list (update lates package information from elpa/melpa and choose packages for update)
+
+
+* Magit
+
+** C-x g - git status
+l l - magit history buffer
+s - stage
+u - unstage
+c c - commit message
+C-c C-c - finalize commit
+
