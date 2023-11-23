@@ -193,10 +193,12 @@
 
 #+BEGIN_SRC emacs-lisp
 
+(setq-default python-indend-offset 4)
 (setq-default c-basic-offset 4)
 (setq-default c-default-style "bsd")
 (setq-default show-trailing-whitespace t)
 (setq-default indent-tabs-mode nil)
+
 
 #+END_SRC
 
