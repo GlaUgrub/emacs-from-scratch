@@ -77,6 +77,7 @@ l l - magit history buffer
 s - stage
 u - unstage
 k - discard unstaged changes
-c c - commit message
+c c - create commit
+c a - amend last commit
 C-c C-c - finalize commit
 
