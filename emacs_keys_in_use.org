@@ -62,6 +62,10 @@ C-x C-e - eval last sexp
 C-c p f - find file
 C-c p s g - grep files
 C-c C-o - put grep search results to standalone window
+M-. - go to funcion definition
+C-c p c - compile project
+C-c p P - test project
+C-c p u - run project
 
 
 * Packages
